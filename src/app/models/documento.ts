@@ -1,7 +1,7 @@
-export interface Documento {
+export class Documento {
 
-  id: String;
-  tipo: String;
-  numero: String;
+  id: string;
+  tipo: string;
+  numero: string;
 
 }

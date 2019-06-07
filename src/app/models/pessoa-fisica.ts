@@ -20,17 +20,17 @@ enum Etnia {
 }
 
 
-export interface PessoaFisica {
+export class PessoaFisica {
 
-  id: String;
-  nome: String;
+  id: string;
+  nome: string;
   dataNascimento: Date;
   genero: Genero;
   estadoCivil: EstadoCivil;
   etnia: Etnia;
-  nomeResponsavel: String;
-  nomeDaMae: String;
-  email: String;
+  nomeResponsavel: string;
+  nomeDaMae: string;
+  email: string;
   enderecos: Array<Endereco>;
   telefones: Array<Telefone>;
   documentos: Array<Documento>;

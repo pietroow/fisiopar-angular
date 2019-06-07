@@ -8,19 +8,19 @@ import { PainelSimplesComponent } from './painel-simples/painel-simples.componen
 import {MatFormFieldModule, MatFormFieldControl} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
-import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { MainPageComponent } from './main-page/main-page.component';
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PainelSimplesComponent,
-    MainPageComponent
   ],
   imports: [
     BrowserModule,
-    CoreModule,
     SharedModule,
     MatSelectModule,
     MatDatepickerModule,
@@ -30,7 +30,10 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatButtonModule, 
     MatCheckboxModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

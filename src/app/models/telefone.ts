@@ -1,6 +1,6 @@
 export interface Telefone {
 
-  id: String;
+  id: string;
   numero: Number;
   ddd: Number;
 

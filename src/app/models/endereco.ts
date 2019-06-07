@@ -1,12 +1,12 @@
-export interface Endereco {
+export class Endereco {
 
-  id: String;
-  logradouro: String;
-  numero: String;
-  bairro: String;
-  uf: String;
-  cidade: String;
-  complemento: String;
-  cep: String;
+  id: string;
+  logradouro: string;
+  numero: string;
+  bairro: string;
+  uf: string;
+  cidade: string;
+  complemento: string;
+  cep: string;
 
 }

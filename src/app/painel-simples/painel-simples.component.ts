@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FormGroup } from '@angular/forms';
-import { HttpClient } from 'selenium-webdriver/http';
-import { FisioterapeutaServiceService } from '../shared/fisioterapeuta-service.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { FisioterapeutaService } from '../shared/fisioterapeuta.service';
 import { Fisioterapeuta } from '../models/fisioterapeuta';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-painel-simples',
@@ -12,35 +10,40 @@ import { Fisioterapeuta } from '../models/fisioterapeuta';
   styleUrls: ['./painel-simples.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ])
-    ],
+  ],
 })
 
 export class PainelSimplesComponent implements OnInit {
 
-  constructor(
-    private http: HttpClient,
-    private fisioterapeutaService: FisioterapeutaServiceService
-    ) { }
+  objeto: any = {};
+  fisioterapeuta: Fisioterapeuta = new Fisioterapeuta();
+  dataSource = new MatTableDataSource();
+  columnsToDisplay = ['nome', 'especialidade', 'email', 'crefito'];
+  expandedElement: Fisioterapeuta | null;
 
-  fisioterapeuta: Fisioterapeuta;
-  investimentoPoupanciaId = 2;
-  error: any;
+  constructor(
+    private fisioterapeutaService: FisioterapeutaService
+  ) { }
+
+  ngOnInit() {
+    this.findAll();
+  }
 
   findAll() {
     this.fisioterapeutaService.findAll().subscribe(res => {
-      this.fisioterapeuta = res;
+      this.dataSource.data = res;
     });
   }
 
-
-
-
-
-  ngOnInit() {
+  create() {
+    this.fisioterapeutaService.create(this.fisioterapeuta).subscribe();
   }
 
+  createCor() {
+    this.fisioterapeutaService.createCor(this.objeto).subscribe();
+  }
 }
