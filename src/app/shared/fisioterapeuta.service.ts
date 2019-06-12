@@ -7,8 +7,7 @@ import { Fisioterapeuta } from '../models/fisioterapeuta';
 })
 export class FisioterapeutaService {
 
-  endpoint: string = 'http://localhost:8090/fisioterapeuta';
-  
+  endpoint = 'http://localhost:8090/fisioterapeuta';
 
   constructor(private http: HttpClient) { }
 
@@ -18,10 +17,6 @@ export class FisioterapeutaService {
 
   create(fisioterapeuta: Fisioterapeuta): any {
     return this.http.post<Fisioterapeuta>(this.endpoint, fisioterapeuta);
-  }
-
-  createCor(nome: any): any {
-    return this.http.post<any>('http://localhost:8090/api/cor', nome);
   }
 
 }

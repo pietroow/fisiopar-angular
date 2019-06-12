@@ -10,8 +10,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
 import { SharedModule } from './shared/shared.module';
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -27,13 +28,14 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -43,7 +43,4 @@ export class PainelSimplesComponent implements OnInit {
     this.fisioterapeutaService.create(this.fisioterapeuta).subscribe();
   }
 
-  createCor() {
-    this.fisioterapeutaService.createCor(this.objeto).subscribe();
-  }
 }

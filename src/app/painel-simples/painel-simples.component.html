@@ -1,11 +1,89 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>FISIOPAR</span>
 
+      <button mat-raised-button color="primary">
+        <mat-icon svgIcon="healing">
+        </mat-icon>Primary</button>
+    </mat-toolbar-row>
 
+  </mat-toolbar>
 
 <mat-form-field appearance="outline">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="objeto.name" placeholder="Nome">
+    <input matInput [(ngModel)]="fisioterapeuta.nome" placeholder="Nome">
 </mat-form-field>
-<button mat-button (click)="createCor()">clickMeAAAAAAAAAAWWWWWWWWWWNNNNNNNNNNNN</button>
+
+<mat-form-field appearance="outline">
+    <mat-label>Data de Nascimento</mat-label>
+  <input matInput [matDatepicker]="picker" [(ngModel)]="fisioterapeuta.dataNascimento" placeholder="Data de Nascimento">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Gênero</mat-label>
+  <mat-select disableRipple [(ngModel)]="fisioterapeuta.genero">
+    <mat-option value="MASCULINO">Masculino</mat-option>
+    <mat-option value="FEMININO">Feminino</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Estado Civil</mat-label>
+  <mat-select disableRipple [(ngModel)]="fisioterapeuta.estadoCivil">
+    <mat-option value="SOLTEIRO">Solteiro</mat-option>
+    <mat-option value="CASADO">Casado</mat-option>
+    <mat-option value="VIUVO">Viúvo</mat-option>
+    <mat-option value="DIVORCIADO">Divorciado</mat-option>
+    <mat-option value="SEPARADO">Separado</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>Etnia</mat-label>
+    <mat-select disableRipple [(ngModel)]="fisioterapeuta.etnia">
+      <mat-option value="INDIGENA">Indígena</mat-option>
+      <mat-option value="BRANCO">Branco</mat-option>
+      <mat-option value="PARDO">Pardo</mat-option>
+      <mat-option value="NEGRO">Negro</mat-option>
+      <mat-option value="AMARELO">Amarelo</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Especialidade</mat-label>
+      <mat-select disableRipple [(ngModel)]="fisioterapeuta.especialidade">
+        <mat-option value="ORTOPEDIA">Ortopedia</mat-option>
+        <mat-option value="CARDIOVASCULAR">Cardiovascular</mat-option>
+        <mat-option value="PNEUMOFUNCIONAL">Pneumofuncional</mat-option>
+        <mat-option value="PEDIATRIA">Pediatria</mat-option>
+        <mat-option value="NEUROFUNCIONAL">Neurofuncional</mat-option>
+        <mat-option value="GINECOLOGIA">Ginecologia</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Nome do Responsável</mat-label>
+      <input matInput [(ngModel)]="fisioterapeuta.nomeResponsavel" placeholder="Nome do responsável">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Nome da Mãe</mat-label>
+      <input matInput [(ngModel)]="fisioterapeuta.nomeDaMae" placeholder="Nome da mãe">
+  </mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Email</mat-label>
+  <input matInput [(ngModel)]="fisioterapeuta.email" placeholder="Email">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>Crefito</mat-label>
+    <input matInput [(ngModel)]="fisioterapeuta.crefito" placeholder="Crefito">
+</mat-form-field>
+
+<button mat-button (click)="create()">Criar</button>
 
 
 
