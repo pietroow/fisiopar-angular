@@ -14,11 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { PainelSimplesComponent } from './painel-simples/painel-simples.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PainelSimplesComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
