@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { MatTableDataSource } from '@angular/material';
+
 import { FisioterapeutaService } from '../shared/fisioterapeuta.service';
 import { Fisioterapeuta } from '../models/fisioterapeuta';
-import { MatTableDataSource } from '@angular/material';
+
 
 @Component({
   selector: 'app-painel-simples',
