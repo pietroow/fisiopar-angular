@@ -7,20 +7,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { PainelSimplesComponent } from './painel-simples/painel-simples.component';
 import { SharedModule } from './shared/shared.module';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import { FormLoginComponent } from './seguranca/form-login/form-login.component';
+import { AuthService } from './seguranca/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PainelSimplesComponent,
-    LoginFormComponent,
+    FormLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +40,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
     MatTableModule,
     HttpClientModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
