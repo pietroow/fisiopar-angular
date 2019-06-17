@@ -76,26 +76,27 @@ export class AuthService {
       );
   }
 
-  public obterNovoAccessToken(): Promise<void> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ZmlzaW9wYXI6YWRzQDAw'
-    });
+  // public obterNovoAccessToken(): Promise<void> {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/x-www-form-urlencoded',
+  //     'Authorization': 'Basic ZmlzaW9wYXI6YWRzQDAw'
+  //   });
 
-    const body = 'grant_type=refresh_token';
+  //   const body = 'grant_type=refresh_token';
 
-    return this.http.post(this.oauthTokenUrl, body, { headers, withCredentials: true })
-      .toPromise()
-      .then((response: any) => {
-        this.armazenarToken(response.access_token);
-        console.log('Novo access token criado!');
-        return Promise.resolve(null);
-      })
-      .catch(response => {
-        console.error('Erro ao renovar token.', response);
-        return Promise.resolve(null);
-      })
-  }
+  //   return this.http.post(this.oauthTokenUrl, body, { headers, withCredentials: true })
+  //     .toPromise()
+  //     .then((response: any) => {
+  //       debugger
+  //       this.armazenarToken(response.access_token);
+  //       console.log('Novo access token criado!');
+  //       return Promise.resolve(null);
+  //     })
+  //     .catch(response => {
+  //       console.error('Erro ao renovar token.', response);
+  //       return Promise.reject(null);
+  //     });
+  // }
 
   public hasPermission(permission: string) {
     return this.jwtPayload && this.jwtPayload.authorities.includes(permission);

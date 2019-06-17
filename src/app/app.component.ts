@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private auth: AuthService
+    public auth: AuthService
     ){  }
 
   exibirNavBar(){
@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   obterNovoAccessToken(){
-    this.auth.obterNovoAccessToken();
+    this.auth.refreshToken();
   }
 
 }

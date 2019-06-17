@@ -24,6 +24,7 @@ import { MainComponent } from './pages/main/main.component';
 import { FisioterapeutaComponent } from './pages/fisioterapeuta/fisioterapeuta.component';
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import { ErrorInterceptor } from './shared/error-interceptor';
+import { AuthGuard } from './seguranca/auth.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -70,6 +71,7 @@ const material = [
   providers: [
     AuthService,
     JwtHelperService,
+    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
