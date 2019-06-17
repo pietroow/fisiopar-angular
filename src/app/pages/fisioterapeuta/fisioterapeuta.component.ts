@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import { Fisioterapeuta } from 'src/app/models/fisioterapeuta';
 import { MatTableDataSource } from '@angular/material';
-
-import { FisioterapeutaService } from '../shared/fisioterapeuta.service';
-import { Fisioterapeuta } from '../models/fisioterapeuta';
-
+import { FisioterapeutaService } from 'src/app/shared/fisioterapeuta.service';
+import { AuthService } from 'src/app/seguranca/auth.service';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
-  selector: 'app-painel-simples',
-  templateUrl: './painel-simples.component.html',
-  styleUrls: ['./painel-simples.component.css'],
+  selector: 'app-fisioterapeuta',
+  templateUrl: './fisioterapeuta.component.html',
+  styleUrls: ['./fisioterapeuta.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
       state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ])
-  ],
+  ]
 })
 
-export class PainelSimplesComponent implements OnInit {
-
+export class FisioterapeutaComponent implements OnInit {
+    
   objeto: any = {};
   fisioterapeuta: Fisioterapeuta = new Fisioterapeuta();
   dataSource = new MatTableDataSource();
@@ -28,7 +27,8 @@ export class PainelSimplesComponent implements OnInit {
   expandedElement: Fisioterapeuta | null;
 
   constructor(
-    private fisioterapeutaService: FisioterapeutaService
+    private fisioterapeutaService: FisioterapeutaService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -44,5 +44,6 @@ export class PainelSimplesComponent implements OnInit {
   create() {
     this.fisioterapeutaService.create(this.fisioterapeuta).subscribe();
   }
+
 
 }

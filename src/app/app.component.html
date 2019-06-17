@@ -1,3 +1,15 @@
-<div class="form-center">
-    <router-outlet></router-outlet>
+<div class="form-center" *ngIf="exibirNavBar()">
+    <mat-toolbar color="primary" class="navbar">
+
+        <div><a [routerLink]="['main']">Fisiopar</a></div>
+        <!-- <div><button type="submit" (click)="obterNovoAccessToken()">Novo Access Token</button></div> -->
+        <div>
+            <a [routerLink]="['fisioterapeuta']" *ngIf="auth.hasPermission('ROLE_PESQUISAR_FISIOTERAPEUTA')">Fisioterapeuta</a>
+            <a [routerLink]="['paciente']" *ngIf="auth.hasPermission('ROLE_PESQUISAR_PACIENTE')">Paciente</a>
+            <button mat-flat-button color="primary" (click)="auth.logout()"><mat-icon>power_settings_new</mat-icon></button>
+        </div>
+    </mat-toolbar>
+
 </div>
+
+<router-outlet></router-outlet>

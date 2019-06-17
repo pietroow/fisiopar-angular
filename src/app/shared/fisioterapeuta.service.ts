@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Fisioterapeuta } from '../models/fisioterapeuta';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class FisioterapeutaService {
 
   constructor(private http: HttpClient) { }
 
-  findAll(){
+  findAll() {
     return this.http.get<Fisioterapeuta[]>(this.endpoint);
   }
 
